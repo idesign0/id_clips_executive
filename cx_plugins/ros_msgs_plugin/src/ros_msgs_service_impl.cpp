@@ -94,7 +94,7 @@ void RosMsgsPlugin::create_new_service(
     RCLCPP_ERROR(*logger_, "Invalid reference to parent node");
   }
 
-  std::map<std::__cxx11::basic_string<char>, std::shared_ptr<rclcpp::GenericService>>::iterator it;
+  std::map<std::basic_string<char>, std::shared_ptr<rclcpp::GenericService>>::iterator it;
   {
     map_mtx_.lock();
     it = services_[env_name].find(service_name);

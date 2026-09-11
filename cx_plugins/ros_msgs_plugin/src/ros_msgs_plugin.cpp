@@ -1016,7 +1016,7 @@ void RosMsgsPlugin::create_new_publisher(
     RCLCPP_ERROR(*logger_, "Invalid reference to parent node");
   }
 
-  std::map<std::__cxx11::basic_string<char>, std::shared_ptr<rclcpp::GenericPublisher>>::iterator
+  std::map<std::basic_string<char>, std::shared_ptr<rclcpp::GenericPublisher>>::iterator
     it;
   {
     map_mtx_.lock();

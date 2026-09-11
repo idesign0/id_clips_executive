@@ -325,7 +325,7 @@ void RosMsgsPlugin::create_new_action_client(
   }
 
   std::map<
-    std::__cxx11::basic_string<char>, std::shared_ptr<rclcpp_action::GenericClient>>::iterator it;
+    std::basic_string<char>, std::shared_ptr<rclcpp_action::GenericClient>>::iterator it;
   {
     map_mtx_.lock();
     it = action_clients_[env_name].find(action_server_name);

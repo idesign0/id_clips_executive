@@ -138,7 +138,7 @@ void RosMsgsPlugin::create_new_client(
     RCLCPP_ERROR(*logger_, "Invalid reference to parent node");
   }
 
-  std::map<std::__cxx11::basic_string<char>, std::shared_ptr<rclcpp::GenericClient>>::iterator it;
+  std::map<std::basic_string<char>, std::shared_ptr<rclcpp::GenericClient>>::iterator it;
   {
     map_mtx_.lock();
     it = clients_[env_name].find(service_name);

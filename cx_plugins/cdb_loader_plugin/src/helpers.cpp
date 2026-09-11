@@ -196,7 +196,8 @@ std::vector<Defmodule> load_defmodules(pqxx::connection & conn, Tick restore_tic
   std::vector<Defmodule> result;
   result.reserve(rows.size());
 
-  for (const pqxx::row & row : rows) {
+  for (auto const & _pqxx_row_src : rows) {
+    const pqxx::row row{_pqxx_row_src};
     result.push_back(Defmodule{
       .name = row["name"].as<std::string>(),
       .value = row["value"].as<std::string>(),
@@ -226,7 +227,8 @@ std::vector<Deftemplate> load_deftemplates(
   std::vector<Deftemplate> result;
   result.reserve(rows.size());
 
-  for (const pqxx::row & row : rows) {
+  for (auto const & _pqxx_row_src : rows) {
+    const pqxx::row row{_pqxx_row_src};
     Deftemplate item{
       .name = row["name"].as<std::string>(),
       .defmodule = row["module"].as<std::string>(),
@@ -261,7 +263,8 @@ std::vector<Defglobal> load_defglobals(
   std::vector<Defglobal> result;
   result.reserve(rows.size());
 
-  for (const pqxx::row & row : rows) {
+  for (auto const & _pqxx_row_src : rows) {
+    const pqxx::row row{_pqxx_row_src};
     result.push_back(Defglobal{
       .name = row["name"].as<std::string>(),
       .defmodule = row["module"].as<std::string>(),
@@ -293,7 +296,8 @@ std::vector<Deffunction> load_deffunctions(
   std::vector<Deffunction> result;
   result.reserve(rows.size());
 
-  for (const pqxx::row & row : rows) {
+  for (auto const & _pqxx_row_src : rows) {
+    const pqxx::row row{_pqxx_row_src};
     result.push_back(Deffunction{
       .name = row["name"].as<std::string>(),
       .defmodule = row["module"].as<std::string>(),
@@ -325,7 +329,8 @@ std::vector<Defrule> load_defrules(
   std::vector<Defrule> result;
   result.reserve(rows.size());
 
-  for (const pqxx::row & row : rows) {
+  for (auto const & _pqxx_row_src : rows) {
+    const pqxx::row row{_pqxx_row_src};
     result.push_back(Defrule{
       .rule_id = row["rule_id"].as<int>(),
       .name = row["name"].as<std::string>(),
@@ -360,7 +365,8 @@ std::vector<Deffacts> load_deffacts(
   std::vector<Deffacts> result;
   result.reserve(rows.size());
 
-  for (const pqxx::row & row : rows) {
+  for (auto const & _pqxx_row_src : rows) {
+    const pqxx::row row{_pqxx_row_src};
     result.push_back(Deffacts{
       .name = row["name"].as<std::string>(),
       .defmodule = row["module"].as<std::string>(),
@@ -391,7 +397,8 @@ std::vector<Fact> load_facts(
   std::vector<Fact> result;
   result.reserve(rows.size());
 
-  for (const pqxx::row & row : rows) {
+  for (auto const & _pqxx_row_src : rows) {
+    const pqxx::row row{_pqxx_row_src};
     result.push_back(Fact{
       .fact_id = row["fact_id"].as<int64_t>(),
       .defmodule = row["module"].as<std::string>(),
